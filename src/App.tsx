@@ -6,7 +6,7 @@ function App() {
 		<>
 			<div className="flex min-h-screen max-h-full justify-center items-center">
 				<div className="header">
-					<h1 className="text-8xl font-bold text-white">haroon bakhsh</h1>
+					<h1 className="text-2xl lg:text-7xl font-bold text-white ">haroon bakhsh</h1>
 					<a href="mailto:h@hbak.co" className="text-4xl text-indigo-300 mr-6 hover:text-indigo-100">
 						h@hbak.co
 					</a>
