@@ -1,21 +1,18 @@
 import "./index.css";
 import "./App.css";
+import { Link } from "./components/Link";
 
 function App() {
 	return (
 		<>
 			<div className="flex min-h-screen max-h-full justify-center items-center">
 				<div className="header">
-					<h1 className="text-2xl lg:text-7xl font-bold text-white ">haroon bakhsh</h1>
-					<a href="mailto:h@hbak.co" className="text-4xl text-indigo-300 mr-6 hover:text-indigo-100">
-						h@hbak.co
-					</a>
-					<a href="https://x.com/hmbakhsh" className="text-4xl text-indigo-300 mr-6 hover:text-indigo-100">
-						x/@hmbakhsh
-					</a>
-					<a href="https://github.com/hmbakhsh" className="text-4xl text-indigo-300 hover:text-indigo-100">
-						github/@hmbakhsh
-					</a>
+					<h1 className="text-2xl lg:text-7xl font-bold text-white mb-4">haroon bakhsh</h1>
+					<div className="flex">
+						<Link link="mailto:h@hbak.co" content="h@hbak.co" />
+						<Link link="https://github.com/hmbakhsh" content="github/hmbakhsh" />
+						<Link link="https://x.com/hmbakhsh" content="x/hmbakhsh" />
+					</div>
 				</div>
 			</div>
 		</>
