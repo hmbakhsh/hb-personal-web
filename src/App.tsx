@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import "./index.css";
 import "./App.css";
 import GithubLogo from "../src/assets/github-logo.svg?react";
@@ -11,12 +11,15 @@ function App() {
       <div className="w-full max-w-xl sm:max-w-2xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl">
         <div className="flex flex-col items-start gap-8 sm:gap-8">
           <div className="flex flex-col">
-            <h1 className="sr-only">HB</h1>
-            <img
-              src="/haroon-ascii.svg"
-              alt="Haroon Bakhsh ASCII wordmark"
-              className="w-full max-w-[500px] self-start sm:max-w-[520px] md:max-w-[640px] lg:max-w-[720px]"
-            />
+            <div className="flex flex-col gap-2">
+              <Clock />
+              <h1 className="sr-only">HB</h1>
+              <img
+                src="/haroon-ascii.svg"
+                alt="Haroon Bakhsh ASCII wordmark"
+                className="w-full max-w-[500px] self-start sm:max-w-[520px] md:max-w-[640px] lg:max-w-[720px]"
+              />
+            </div>
             <p
               className="m-0 p-0 text-left text-base text-indigo-200/80 sm:text-lg md:text-xl md:w-3/5"
               style={{
@@ -49,6 +52,35 @@ function App() {
       </div>
     </div>
   );
+}
+
+function Clock() {
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat("en-GB", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+        timeZoneName: "short",
+      });
+      const formatted = formatter.format(now).replace(",", "");
+      setTime(formatted);
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return <p className="text-indigo-100">{time}</p>;
 }
 
 function Button({
