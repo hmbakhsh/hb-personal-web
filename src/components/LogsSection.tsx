@@ -80,10 +80,10 @@ export function LogsSection() {
           <a
             key={index}
             href={log.url}
-            className="grid grid-cols-1 sm:grid-cols-[100px_60px_1fr] gap-1 sm:gap-4 py-3 hover:bg-indigo-900/20 transition-colors border-b border-indigo-500/10 last:border-b-0"
+            className="flex flex-col sm:grid sm:grid-cols-[100px_60px_1fr] gap-1 sm:gap-4 py-3 hover:bg-indigo-900/20 transition-colors border-b border-indigo-500/10 last:border-b-0"
           >
-            <span className="text-indigo-300/50 text-sm">{log.timestamp}</span>
-            <div className="flex items-center">
+            <div className="flex items-center gap-3 sm:contents">
+              <span className="text-indigo-300/50 text-sm">{log.timestamp}</span>
               <TypeBadge type={log.type} />
             </div>
             <span className="text-indigo-100 truncate text-sm">
