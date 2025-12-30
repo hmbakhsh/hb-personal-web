@@ -1,0 +1,17 @@
+---
+title: "Building a real-time sync engine"
+date: "2025-06-01"
+type: "ENG"
+slug: "real-time-sync-engine"
+description: "How we built a real-time sync engine for PrismPMS"
+---
+
+Real-time sync is deceptively complex. Here's how we built one that actually works.
+
+## The Challenge
+
+Multiple users editing the same data simultaneously. Offline support. Conflict resolution. All while keeping the UI snappy.
+
+## Our Approach
+
+We use operational transforms combined with a CRDT-like structure for specific data types. It's not pure CRDT, but it gets the job done.

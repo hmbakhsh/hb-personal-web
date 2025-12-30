@@ -1,0 +1,21 @@
+---
+title: "Scaling Postgres for Multi-Tenant Architecture"
+date: "2025-09-12"
+type: "ENG"
+slug: "scaling-postgres-multi-tenant"
+description: "Lessons learned building a multi-tenant Postgres architecture"
+---
+
+When building PrismPMS, one of the first major architectural decisions was how to handle multi-tenancy in Postgres.
+
+## The Options
+
+There are three common approaches:
+
+1. **Separate databases** - One database per tenant
+2. **Shared database, separate schemas** - One schema per tenant
+3. **Shared database, shared schema** - All tenants in same tables with tenant_id
+
+## What We Chose
+
+We went with option 3 - shared schema with row-level security (RLS). This approach scales well and keeps operational complexity low.

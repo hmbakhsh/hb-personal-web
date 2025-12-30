@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 type LogEntry = {
   timestamp: string;
@@ -9,38 +10,9 @@ type LogEntry = {
   url: string;
 };
 
-const LOGS: LogEntry[] = [
-  {
-    timestamp: "2025-09-12",
-    type: "ENG",
-    subject: "Scaling Postgres for Multi-Tenant Architecture",
-    url: "#",
-  },
-  {
-    timestamp: "2025-08-30",
-    type: "DES",
-    subject: "The Art of Pixel Perfect UI in React",
-    url: "#",
-  },
-  {
-    timestamp: "2025-07-15",
-    type: "ENG",
-    subject: "Why I rebuilt my infrastructure twice",
-    url: "#",
-  },
-  {
-    timestamp: "2025-06-01",
-    type: "ENG",
-    subject: "Building a real-time sync engine",
-    url: "#",
-  },
-  {
-    timestamp: "2025-05-10",
-    type: "DES",
-    subject: "Design systems that actually scale",
-    url: "#",
-  },
-];
+type LogsSectionProps = {
+  logs: LogEntry[];
+};
 
 function TypeBadge({ type }: { type: "ENG" | "DES" }) {
   return (
@@ -50,10 +22,10 @@ function TypeBadge({ type }: { type: "ENG" | "DES" }) {
   );
 }
 
-export function LogsSection() {
+export function LogsSection({ logs }: LogsSectionProps) {
   const [visibleCount, setVisibleCount] = useState(3);
-  const visibleLogs = LOGS.slice(0, visibleCount);
-  const remaining = LOGS.length - visibleCount;
+  const visibleLogs = logs.slice(0, visibleCount);
+  const remaining = logs.length - visibleCount;
 
   return (
     <div
@@ -79,7 +51,7 @@ export function LogsSection() {
       {/* Log entries */}
       <div className="flex flex-col">
         {visibleLogs.map((log, index) => (
-          <a
+          <Link
             key={index}
             href={log.url}
             className="flex flex-col sm:grid sm:grid-cols-[100px_60px_1fr] gap-1 sm:gap-4 py-3 hover:bg-indigo-900/20 transition-colors border-b border-indigo-500/10 last:border-b-0"
@@ -91,7 +63,7 @@ export function LogsSection() {
             <span className="text-indigo-100 truncate text-sm">
               {log.subject}
             </span>
-          </a>
+          </Link>
         ))}
       </div>
 
