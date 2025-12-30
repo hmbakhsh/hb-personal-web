@@ -2,6 +2,8 @@
 
 import { ActivityCalendar } from "react-activity-calendar";
 import { useState, useEffect } from "react";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const USERNAME = "hmbakhsh";
 const CACHE_KEY = `github-calendar-${USERNAME}`;
@@ -102,7 +104,16 @@ export function GitHubCalendarWrapper() {
         theme={{
           dark: ["#1e1b4b", "#3730a3", "#4f46e5", "#6366f1", "#818cf8"],
         }}
+        renderBlock={(block, activity) => (
+          <g
+            data-tooltip-id="calendar-tooltip"
+            data-tooltip-content={`${activity.count} contribution${activity.count !== 1 ? "s" : ""} on ${activity.date}`}
+          >
+            {block}
+          </g>
+        )}
       />
+      <Tooltip id="calendar-tooltip" />
     </div>
   );
 }
