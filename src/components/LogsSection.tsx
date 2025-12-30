@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -24,9 +23,7 @@ function TypeBadge({ type }: { type: "ENG" | "DES" }) {
 }
 
 export function LogsSection({ logs }: LogsSectionProps) {
-  const [visibleCount, setVisibleCount] = useState(3);
-  const visibleLogs = logs.slice(0, visibleCount);
-  const remaining = logs.length - visibleCount;
+  const visibleLogs = logs.slice(0, 3);
 
   return (
     <div
@@ -73,16 +70,13 @@ export function LogsSection({ logs }: LogsSectionProps) {
         ))}
       </div>
 
-      {/* Load more button */}
-      {remaining > 0 && (
-        <button
-          onClick={() => setVisibleCount((v) => v + 3)}
-          className="flex items-center gap-2 mt-6 text-indigo-400/70 text-sm hover:text-indigo-300 transition-colors"
-        >
-          <span>⊕</span>
-          <span>load_more_entries ({remaining})</span>
-        </button>
-      )}
+      {/* View all posts link */}
+      <Link
+        href="/blog"
+        className="flex items-center gap-2 mt-6 text-indigo-400/70 text-sm hover:text-indigo-300 transition-colors"
+      >
+        <span>View all posts &rarr;</span>
+      </Link>
     </div>
   );
 }
