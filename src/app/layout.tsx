@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${jetbrainsMono.variable} overflow-hidden`}>
+    <html lang="en" className={jetbrainsMono.variable}>
       <body className="bg-neutral-950">{children}</body>
     </html>
   );
