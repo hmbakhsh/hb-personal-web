@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type LogEntry = {
   timestamp: string;
@@ -37,8 +38,7 @@ export function LogsSection({ logs }: LogsSectionProps) {
 
       {/* Terminal header */}
       <div className="text-indigo-400 mb-6 text-sm">
-        <span className="text-indigo-500">&gt;_</span> usr/haroon/logs{" "}
-        <span className="animate-pulse">_</span>
+        &gt;_ usr/hb/logs
       </div>
 
       {/* Table header */}
@@ -51,19 +51,25 @@ export function LogsSection({ logs }: LogsSectionProps) {
       {/* Log entries */}
       <div className="flex flex-col">
         {visibleLogs.map((log, index) => (
-          <Link
-            key={index}
-            href={log.url}
-            className="flex flex-col sm:grid sm:grid-cols-[100px_60px_1fr] gap-1 sm:gap-4 py-3 hover:bg-indigo-900/20 transition-colors border-b border-indigo-500/10 last:border-b-0"
+          <motion.div
+            key={`${log.timestamp}-${log.subject}`}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
           >
-            <div className="flex items-center gap-3 sm:contents">
-              <span className="text-indigo-300/50 text-sm">{log.timestamp}</span>
-              <TypeBadge type={log.type} />
-            </div>
-            <span className="text-indigo-100 truncate text-sm">
-              {log.subject}
-            </span>
-          </Link>
+            <Link
+              href={log.url}
+              className="flex flex-col sm:grid sm:grid-cols-[100px_60px_1fr] gap-1 sm:gap-4 py-3 hover:bg-indigo-900/20 transition-colors border-b border-indigo-500/10 last:border-b-0"
+            >
+              <div className="flex items-center gap-3 sm:contents">
+                <span className="text-indigo-300/50 text-sm">{log.timestamp}</span>
+                <TypeBadge type={log.type} />
+              </div>
+              <span className="text-indigo-100 truncate text-sm">
+                {log.subject}
+              </span>
+            </Link>
+          </motion.div>
         ))}
       </div>
 
