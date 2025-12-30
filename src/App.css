@@ -43,3 +43,14 @@
 p {
   font-family: "JetBrains Mono", monospace;
 }
+
+/* GitHub Calendar Tooltip Styling */
+[role="tooltip"] {
+  background-color: #312e81 !important;
+  color: #c7d2fe !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 12px !important;
+  border: 1px solid #4f46e5 !important;
+  border-radius: 4px !important;
+  padding: 6px 10px !important;
+}

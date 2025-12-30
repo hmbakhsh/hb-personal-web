@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import "./index.css";
 import "./App.css";
+import { GitHubCalendar } from "react-github-calendar";
 import GithubLogo from "../src/assets/github-logo.svg?react";
 import XLogo from "../src/assets/x-logo.svg?react";
 import MailLogo from "../src/assets/email.svg?react";
@@ -21,21 +22,43 @@ function App() {
               />
             </div>
             <p
-              className="m-0 p-0 text-left text-base text-indigo-200/80 sm:text-lg md:text-xl md:w-3/5"
+              className="m-0 p-0 text-left text-base text-indigo-200/50 sm:text-lg md:text-xl md:w-4/5"
               style={{
                 fontFamily: '"JetBrains Mono", monospace',
               }}
             >
-              building{" "}
-              <a
-                href="https://prismpms.com"
-                className="underline underline-offset-2 text-bold text-indigo-300"
-              >
-                prismpms.com
-              </a>{" "}
-              — modern practice management for independent opticians. interested
-              in ml/swe/finance.
+              <span className="font-extrabold text-indigo-300">
+                building{" "}
+                <a
+                  href="https://prismpms.com"
+                  className="underline underline-offset-2 text-bold"
+                >
+                  prismpms.com
+                </a>
+              </span>{" "}
+              modern practice management for independent opticians
+              {/* <span className="italic">interested in ml/swe/finance.</span> */}
             </p>
+          </div>
+          <div className="w-full overflow-x-auto">
+            <GitHubCalendar
+              username="hmbakhsh"
+              colorScheme="dark"
+              showColorLegend={false}
+              showMonthLabels={false}
+              showTotalCount={false}
+              blockSize={10}
+              blockMargin={3}
+              theme={{
+                dark: ["#1e1b4b", "#3730a3", "#4f46e5", "#6366f1", "#818cf8"],
+              }}
+              tooltips={{
+                activity: {
+                  text: (activity) =>
+                    `${activity.count} contribution${activity.count !== 1 ? "s" : ""} on ${activity.date}`,
+                },
+              }}
+            />
           </div>
           <div className="flex w-full gap-2 overflow-x-auto sm:gap-4">
             <Button buttonText="x" url="https://x.com/hmbakhsh">
