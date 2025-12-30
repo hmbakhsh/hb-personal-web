@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 #root {
   margin: 0 auto;
@@ -41,14 +43,14 @@
 }
 
 p {
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
 }
 
 /* GitHub Calendar Tooltip Styling */
 [role="tooltip"] {
   background-color: #312e81 !important;
   color: #c7d2fe !important;
-  font-family: "JetBrains Mono", monospace !important;
+  font-family: var(--font-jetbrains-mono), "JetBrains Mono", monospace !important;
   font-size: 12px !important;
   border: 1px solid #4f46e5 !important;
   border-radius: 4px !important;

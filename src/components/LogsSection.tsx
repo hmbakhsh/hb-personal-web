@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 type LogEntry = {
@@ -56,7 +58,7 @@ export function LogsSection() {
   return (
     <div
       className="w-full"
-      style={{ fontFamily: '"JetBrains Mono", monospace' }}
+      style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
     >
       {/* Dashed divider */}
       <div className="border-t border-dashed border-indigo-500/30 my-8" />
