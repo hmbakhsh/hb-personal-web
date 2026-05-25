@@ -3,7 +3,7 @@ import { Clock } from "./Clock";
 export function StatusBar() {
   return (
     <div
-      className="flex w-full items-center gap-4"
+      className="hidden sm:flex w-full items-center gap-4"
       style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
     >
       <Clock />
