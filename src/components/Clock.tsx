@@ -28,5 +28,5 @@ export function Clock() {
     return () => clearInterval(interval);
   }, []);
 
-  return <span className="text-indigo-100 whitespace-nowrap">{time}</span>;
+  return <span className="text-blue-100 whitespace-nowrap">{time}</span>;
 }

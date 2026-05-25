@@ -102,7 +102,7 @@ export function GitHubCalendarWrapper() {
         showMonthLabels={false}
         showTotalCount={false}
         theme={{
-          dark: ["#1e1b4b", "#3730a3", "#4f46e5", "#6366f1", "#818cf8"],
+          dark: ["#1e3a8a", "#2563eb", "#3b82f6", "#60a5fa", "#93c5fd"],
         }}
         renderBlock={(block, activity) => (
           <g

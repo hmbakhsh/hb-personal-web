@@ -19,12 +19,12 @@ export default function Home() {
               />
             </div>
             <p
-              className="m-0 p-0 text-left text-base text-indigo-200/50 sm:text-lg md:text-xl md:w-4/5"
+              className="m-0 p-0 text-left text-base text-blue-200/50 sm:text-lg md:text-xl md:w-4/5"
               style={{
                 fontFamily: "var(--font-jetbrains-mono), monospace",
               }}
             >
-              <span className="font-extrabold text-indigo-300">
+              <span className="font-extrabold text-blue-300">
                 head of eng @{" "}
                 <a
                   href="https://36labs.ai"

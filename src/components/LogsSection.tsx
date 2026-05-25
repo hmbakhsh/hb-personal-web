@@ -16,7 +16,7 @@ type LogsSectionProps = {
 
 function TypeBadge({ type }: { type: "ENG" | "DES" }) {
   return (
-    <span className="inline-flex items-center justify-center border border-indigo-500/50 px-1.5 py-0.5 text-xs text-indigo-300">
+    <span className="inline-flex items-center justify-center border border-blue-500/50 px-1.5 py-0.5 text-xs text-blue-300">
       {type}
     </span>
   );
@@ -31,15 +31,15 @@ export function LogsSection({ logs }: LogsSectionProps) {
       style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
     >
       {/* Dashed divider */}
-      <div className="border-t border-dashed border-indigo-500/30 my-8" />
+      <div className="border-t border-dashed border-blue-500/30 my-8" />
 
       {/* Terminal header */}
-      <div className="text-indigo-400 mb-6 text-sm">
+      <div className="text-blue-400 mb-6 text-sm">
         &gt;_ usr/hb/logs
       </div>
 
       {/* Table header */}
-      <div className="hidden sm:grid sm:grid-cols-[100px_60px_1fr] gap-4 text-indigo-500/50 text-xs mb-3 uppercase tracking-wider">
+      <div className="hidden sm:grid sm:grid-cols-[100px_60px_1fr] gap-4 text-blue-500/50 text-xs mb-3 uppercase tracking-wider">
         <span>Timestamp</span>
         <span>Type</span>
         <span>Subject</span>
@@ -56,13 +56,13 @@ export function LogsSection({ logs }: LogsSectionProps) {
           >
             <Link
               href={log.url}
-              className="flex flex-col sm:grid sm:grid-cols-[100px_60px_1fr] gap-1 sm:gap-4 py-3 hover:bg-indigo-900/20 transition-colors border-b border-indigo-500/10 last:border-b-0"
+              className="flex flex-col sm:grid sm:grid-cols-[100px_60px_1fr] gap-1 sm:gap-4 py-3 hover:bg-blue-900/20 transition-colors border-b border-blue-500/10 last:border-b-0"
             >
               <div className="flex items-center gap-3 sm:contents">
-                <span className="text-indigo-300/50 text-sm">{log.timestamp}</span>
+                <span className="text-blue-300/50 text-sm">{log.timestamp}</span>
                 <TypeBadge type={log.type} />
               </div>
-              <span className="text-indigo-100 truncate text-sm">
+              <span className="text-blue-100 truncate text-sm">
                 {log.subject}
               </span>
             </Link>
@@ -73,7 +73,7 @@ export function LogsSection({ logs }: LogsSectionProps) {
       {/* View all posts link */}
       <Link
         href="/blog"
-        className="flex items-center gap-2 mt-6 text-indigo-400/70 text-sm hover:text-indigo-300 transition-colors"
+        className="flex items-center gap-2 mt-6 text-blue-400/70 text-sm hover:text-blue-300 transition-colors"
       >
         <span>View all posts &rarr;</span>
       </Link>

@@ -46,25 +46,25 @@ export default async function ArticlePage({
       <article className="w-full max-w-xl sm:max-w-2xl lg:max-w-3xl">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-indigo-400 hover:text-indigo-300 mb-8 text-sm transition-colors"
+          className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-8 text-sm transition-colors"
           style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
         >
           <span>&larr;</span>
           <span>back to home</span>
         </Link>
 
-        <header className="mb-8 border-b border-indigo-500/30 pb-6">
+        <header className="mb-8 border-b border-blue-500/30 pb-6">
           <div
-            className="flex items-center gap-3 text-sm text-indigo-400/70 mb-4"
+            className="flex items-center gap-3 text-sm text-blue-400/70 mb-4"
             style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
           >
             <time>{frontmatter.date}</time>
-            <span className="inline-flex items-center justify-center border border-indigo-500/50 px-1.5 py-0.5 text-xs text-indigo-300">
+            <span className="inline-flex items-center justify-center border border-blue-500/50 px-1.5 py-0.5 text-xs text-blue-300">
               {frontmatter.type}
             </span>
           </div>
           <h1
-            className="text-2xl sm:text-3xl font-bold text-indigo-100"
+            className="text-2xl sm:text-3xl font-bold text-blue-100"
             style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
           >
             {frontmatter.title}

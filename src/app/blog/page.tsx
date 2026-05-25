@@ -3,7 +3,7 @@ import { getAllArticles } from "@/lib/articles";
 
 function TypeBadge({ type }: { type: "ENG" | "DES" }) {
   return (
-    <span className="inline-flex items-center justify-center border border-indigo-500/50 px-1.5 py-0.5 text-xs text-indigo-300">
+    <span className="inline-flex items-center justify-center border border-blue-500/50 px-1.5 py-0.5 text-xs text-blue-300">
       {type}
     </span>
   );
@@ -21,17 +21,17 @@ export default function BlogPage() {
         >
           <Link
             href="/"
-            className="text-indigo-400/70 text-sm hover:text-indigo-300 transition-colors mb-8"
+            className="text-blue-400/70 text-sm hover:text-blue-300 transition-colors mb-8"
           >
             &larr; back
           </Link>
 
-          <div className="text-indigo-400 mb-6 text-sm">
+          <div className="text-blue-400 mb-6 text-sm">
             &gt;_ usr/hb/logs
           </div>
 
           {/* Table header */}
-          <div className="hidden sm:grid sm:grid-cols-[100px_60px_1fr] gap-4 text-indigo-500/50 text-xs mb-3 uppercase tracking-wider w-full">
+          <div className="hidden sm:grid sm:grid-cols-[100px_60px_1fr] gap-4 text-blue-500/50 text-xs mb-3 uppercase tracking-wider w-full">
             <span>Timestamp</span>
             <span>Type</span>
             <span>Subject</span>
@@ -43,15 +43,15 @@ export default function BlogPage() {
               <Link
                 key={article.frontmatter.slug}
                 href={`/blog/${article.frontmatter.slug}`}
-                className="flex flex-col sm:grid sm:grid-cols-[100px_60px_1fr] gap-1 sm:gap-4 py-3 hover:bg-indigo-900/20 transition-colors border-b border-indigo-500/10 last:border-b-0"
+                className="flex flex-col sm:grid sm:grid-cols-[100px_60px_1fr] gap-1 sm:gap-4 py-3 hover:bg-blue-900/20 transition-colors border-b border-blue-500/10 last:border-b-0"
               >
                 <div className="flex items-center gap-3 sm:contents">
-                  <span className="text-indigo-300/50 text-sm">
+                  <span className="text-blue-300/50 text-sm">
                     {article.frontmatter.date}
                   </span>
                   <TypeBadge type={article.frontmatter.type} />
                 </div>
-                <span className="text-indigo-100 truncate text-sm">
+                <span className="text-blue-100 truncate text-sm">
                   {article.frontmatter.title}
                 </span>
               </Link>
