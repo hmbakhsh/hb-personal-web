@@ -1,4 +1,3 @@
-import { StatusBar } from "@/components/StatusBar";
 import { Button } from "@/components/Button";
 import { GitHubCalendarWrapper } from "@/components/GitHubCalendarWrapper";
 import { GithubLogo, XLogo, MailLogo } from "@/components/icons";
@@ -8,7 +7,6 @@ export default function Home() {
     <div className="flex min-h-screen w-full items-center justify-center px-4 py-16 sm:px-8">
       <div className="w-full max-w-xl sm:max-w-2xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl">
         <div className="flex flex-col items-start gap-8 sm:gap-8">
-          <StatusBar />
           <div className="flex flex-col">
             <div className="flex flex-col gap-2">
               <h1 className="sr-only">HB</h1>
