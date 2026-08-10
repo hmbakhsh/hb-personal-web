@@ -1,10 +1,13 @@
+import Link from "next/link";
+import { getAllArticles } from "@/lib/articles";
+
 const work = [
   {
     name: "36Labs",
     role: "Member of Technical Staff",
     url: "https://36labs.ai",
     logo: "/logos/36labs.svg",
-    dates: "2026 —",
+    dates: "2026 –",
     description:
       "Autonomous creative intelligence. Leading research and engineering on creativity in large language models.",
   },
@@ -13,16 +16,16 @@ const work = [
     role: "Founder",
     url: "https://prismpms.com",
     logo: "/logos/prism.png",
-    dates: "2024 — 25",
+    dates: "2024 – 25",
     description:
-      "Cloud-native practice management for independent opticians — clinical records, dispensing, and retail in one platform. Built product and engineering from zero.",
+      "Cloud-native practice management for independent opticians: clinical records, dispensing, and retail in one platform. Built product and engineering from zero.",
   },
   {
     name: "Galilei",
     role: "Software Engineer",
     url: "https://galilei.co.uk",
     logo: "/logos/galilei-mark.svg",
-    dates: "2022 — 24",
+    dates: "2022 – 24",
     description:
       "Wealth management firm running institutional multi-asset portfolios with alternative allocations for families, charities, and foundations. Built the firm's data pipelines from scratch.",
   },
@@ -35,6 +38,8 @@ const links = [
 ];
 
 export default function Home() {
+  const articles = getAllArticles();
+
   return (
     <div className="mx-auto max-w-[30rem] px-6 pb-24 pt-32">
       <header className="reveal">
@@ -78,7 +83,6 @@ export default function Home() {
                 <h2 className="text-sm font-medium tracking-tight underline-offset-[3px] group-hover:underline group-hover:decoration-[var(--grey-2)]">
                   {job.name}{" "}
                   <span className="font-normal text-[var(--grey-1)]">
-                    <span className="text-[var(--grey-2)]">· </span>
                     {job.role}
                   </span>
                 </h2>
@@ -94,7 +98,32 @@ export default function Home() {
         ))}
       </section>
 
-      <div className="reveal mt-16 flex gap-6" style={{ animationDelay: "0.4s" }}>
+      <section className="mt-16">
+        <p
+          className="reveal mb-2 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--grey-2)]"
+          style={{ animationDelay: "0.35s" }}
+        >
+          Writing
+        </p>
+
+        {articles.map((article, i) => (
+          <Link
+            key={article.frontmatter.slug}
+            href={`/blog/${article.frontmatter.slug}`}
+            className="reveal group flex items-baseline justify-between gap-4 border-t border-[var(--line)] py-3 last:border-b"
+            style={{ animationDelay: `${0.4 + i * 0.05}s` }}
+          >
+            <span className="truncate text-sm text-[var(--ink)] underline-offset-[3px] group-hover:underline group-hover:decoration-[var(--grey-2)]">
+              {article.frontmatter.title}
+            </span>
+            <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--grey-2)]">
+              {article.frontmatter.date}
+            </span>
+          </Link>
+        ))}
+      </section>
+
+      <div className="reveal mt-16 flex gap-6" style={{ animationDelay: "0.6s" }}>
         {links.map((link) => (
           <a
             key={link.label}
