@@ -45,7 +45,7 @@ export default async function ArticlePage({
     <div className="mx-auto max-w-[34rem] px-6 pb-24 pt-32">
       <article>
         <Link
-          href="/blog"
+          href="/"
           className="font-mono text-xs text-[var(--grey-1)] transition-colors hover:text-[var(--ink)]"
         >
           &larr; back
