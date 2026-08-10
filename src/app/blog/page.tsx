@@ -3,7 +3,7 @@ import { getAllArticles } from "@/lib/articles";
 
 function TypeBadge({ type }: { type: "ENG" | "DES" }) {
   return (
-    <span className="inline-flex items-center justify-center border border-blue-500/50 px-1.5 py-0.5 text-xs text-blue-300">
+    <span className="inline-flex items-center justify-center border border-[var(--line)] px-1.5 py-0.5 font-mono text-[10px] text-[var(--grey-1)]">
       {type}
     </span>
   );
@@ -13,51 +13,36 @@ export default function BlogPage() {
   const articles = getAllArticles();
 
   return (
-    <div className="flex min-h-screen w-full items-center justify-center px-4 py-16 sm:px-8">
-      <div className="w-full max-w-xl sm:max-w-2xl lg:max-w-4xl xl:max-w-5xl 2xl:max-w-6xl">
-        <div
-          className="flex flex-col items-start"
-          style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
-        >
+    <div className="mx-auto max-w-[30rem] px-6 pb-24 pt-32">
+      <Link
+        href="/"
+        className="font-mono text-xs text-[var(--grey-1)] transition-colors hover:text-[var(--ink)]"
+      >
+        &larr; back
+      </Link>
+
+      <p className="mb-2 mt-12 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--grey-2)]">
+        Writing
+      </p>
+
+      <div className="flex flex-col">
+        {articles.map((article) => (
           <Link
-            href="/"
-            className="text-blue-400/70 text-sm hover:text-blue-300 transition-colors mb-8"
+            key={article.frontmatter.slug}
+            href={`/blog/${article.frontmatter.slug}`}
+            className="group flex items-baseline justify-between gap-4 border-t border-[var(--line)] py-4 last:border-b"
           >
-            &larr; back
+            <div className="flex min-w-0 items-baseline gap-3">
+              <TypeBadge type={article.frontmatter.type} />
+              <span className="truncate text-sm text-[var(--ink)] underline-offset-[3px] group-hover:underline group-hover:decoration-[var(--grey-2)]">
+                {article.frontmatter.title}
+              </span>
+            </div>
+            <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--grey-2)]">
+              {article.frontmatter.date}
+            </span>
           </Link>
-
-          <div className="text-blue-400 mb-6 text-sm">
-            &gt;_ usr/hb/logs
-          </div>
-
-          {/* Table header */}
-          <div className="hidden sm:grid sm:grid-cols-[100px_60px_1fr] gap-4 text-blue-500/50 text-xs mb-3 uppercase tracking-wider w-full">
-            <span>Timestamp</span>
-            <span>Type</span>
-            <span>Subject</span>
-          </div>
-
-          {/* Articles list */}
-          <div className="flex flex-col w-full">
-            {articles.map((article) => (
-              <Link
-                key={article.frontmatter.slug}
-                href={`/blog/${article.frontmatter.slug}`}
-                className="flex flex-col sm:grid sm:grid-cols-[100px_60px_1fr] gap-1 sm:gap-4 py-3 hover:bg-blue-900/20 transition-colors border-b border-blue-500/10 last:border-b-0"
-              >
-                <div className="flex items-center gap-3 sm:contents">
-                  <span className="text-blue-300/50 text-sm">
-                    {article.frontmatter.date}
-                  </span>
-                  <TypeBadge type={article.frontmatter.type} />
-                </div>
-                <span className="text-blue-100 truncate text-sm">
-                  {article.frontmatter.title}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

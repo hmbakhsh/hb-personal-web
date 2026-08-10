@@ -42,39 +42,28 @@ export default async function ArticlePage({
   const { frontmatter, content } = article;
 
   return (
-    <div className="flex min-h-screen w-full items-start justify-center px-4 py-16 sm:px-8">
-      <article className="w-full max-w-xl sm:max-w-2xl lg:max-w-3xl">
+    <div className="mx-auto max-w-[34rem] px-6 pb-24 pt-32">
+      <article>
         <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-8 text-sm transition-colors"
-          style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
+          href="/blog"
+          className="font-mono text-xs text-[var(--grey-1)] transition-colors hover:text-[var(--ink)]"
         >
-          <span>&larr;</span>
-          <span>back to home</span>
+          &larr; back
         </Link>
 
-        <header className="mb-8 border-b border-blue-500/30 pb-6">
-          <div
-            className="flex items-center gap-3 text-sm text-blue-400/70 mb-4"
-            style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
-          >
+        <header className="mb-8 mt-12 border-b border-[var(--line)] pb-6">
+          <div className="mb-3 flex items-center gap-3 font-mono text-[11px] text-[var(--grey-2)]">
             <time>{frontmatter.date}</time>
-            <span className="inline-flex items-center justify-center border border-blue-500/50 px-1.5 py-0.5 text-xs text-blue-300">
+            <span className="inline-flex items-center justify-center border border-[var(--line)] px-1.5 py-0.5 text-[10px] text-[var(--grey-1)]">
               {frontmatter.type}
             </span>
           </div>
-          <h1
-            className="text-2xl sm:text-3xl font-bold text-blue-100"
-            style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
-          >
+          <h1 className="text-2xl font-semibold tracking-tight text-[var(--ink)]">
             {frontmatter.title}
           </h1>
         </header>
 
-        <div
-          className="prose prose-invert max-w-none"
-          style={{ fontFamily: "var(--font-jetbrains-mono), monospace" }}
-        >
+        <div className="prose max-w-none">
           <MDXRemote source={content} components={mdxComponents} />
         </div>
       </article>

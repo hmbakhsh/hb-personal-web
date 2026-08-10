@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Haroon Bakhsh — V2 Swiss Grid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700&family=Archivo+Expanded:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --white: #ffffff;
+    --ink: #0a0a0a;
+    --grey-700: #4a4a4a;
+    --grey-500: #8a8a8a;
+    --line: #111111;
+    --line-soft: #e8e8e8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: "Archivo", Helvetica, sans-serif;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .frame {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 0;
+    border-bottom: 2px solid var(--line);
+  }
+  .topbar .mono { color: var(--grey-500); }
+  .topbar .mono strong { color: var(--ink); font-weight: 500; }
+
+  .hero { padding: 5rem 0 4rem; border-bottom: 2px solid var(--line); }
+  h1 {
+    font-family: "Archivo Expanded", "Archivo", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 8vw, 5.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+  h1 .outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--ink);
+  }
+  .hero p {
+    margin-top: 1.75rem;
+    max-width: 32rem;
+    font-size: 1.05rem;
+    color: var(--grey-700);
+  }
+  .hero p a { color: var(--ink); font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--ink); }
+  .hero p a:hover { background: var(--ink); color: var(--white); }
+
+  .exp-head { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid var(--line-soft); color: var(--grey-500); }
+  .row {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr auto;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--line-soft);
+    text-decoration: none;
+    color: inherit;
+    transition: padding-left 0.18s ease;
+  }
+  .row:hover { padding-left: 0.75rem; background: linear-gradient(90deg, #fafafa, transparent); }
+  .row .num { font-family: "JetBrains Mono", monospace; font-size: 0.7rem; color: var(--grey-500); }
+  .row .name {
+    font-family: "Archivo Expanded", sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+  .row .role { display: block; font-family: "Archivo", sans-serif; font-weight: 400; font-size: 0.9rem; text-transform: none; letter-spacing: 0; color: var(--grey-700); margin-top: 0.3rem; }
+  .row .meta { text-align: right; color: var(--grey-500); }
+  .row .meta .mono { display: block; }
+  .row:hover .name { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
+
+  .foot {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 2px solid var(--line);
+    margin-top: 4rem;
+  }
+  .foot a {
+    padding: 1.4rem 0.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--ink);
+    border-right: 1px solid var(--line-soft);
+  }
+  .foot a:last-child { border-right: none; }
+  .foot a:hover { background: var(--ink); color: var(--white); }
+
+  .reveal { opacity: 0; transform: translateY(14px); animation: up 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+  @keyframes up { to { opacity: 1; transform: none; } }
+  @media (max-width: 600px) {
+    .row { grid-template-columns: 1fr; gap: 0.4rem; }
+    .row .meta { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="topbar reveal">
+    <span class="mono"><strong>HB</strong> — Software Engineer</span>
+    <span class="mono">London / UK</span>
+  </div>
+
+  <div class="hero">
+    <h1>
+      <span class="reveal" style="animation-delay:0.1s; display:block">Haroon</span>
+      <span class="outline reveal" style="animation-delay:0.2s; display:block">Bakhsh</span>
+    </h1>
+    <p class="reveal" style="animation-delay:0.3s">
+      Head of Engineering at <a href="https://36labs.ai">36labs</a> — researching
+      creativity in large language models. Previously founded Prism; two years
+      at Galilei Investment Office.
+    </p>
+  </div>
+
+  <div class="exp-head reveal" style="animation-delay:0.4s">
+    <span class="mono">Index / Experience</span>
+    <span class="mono">2022 — Present</span>
+  </div>
+
+  <a class="row reveal" style="animation-delay:0.45s" href="https://36labs.ai">
+    <span class="num">01</span>
+    <span class="name">36labs<span class="role">Head of Engineering — creativity in LLMs</span></span>
+    <span class="meta"><span class="mono">2025 —</span><span class="mono">Current</span></span>
+  </a>
+  <a class="row reveal" style="animation-delay:0.52s" href="https://prismpms.com">
+    <span class="num">02</span>
+    <span class="name">Prism<span class="role">Founder — property management software</span></span>
+    <span class="meta"><span class="mono">2024 —</span><span class="mono">Founder</span></span>
+  </a>
+  <a class="row reveal" style="animation-delay:0.59s" href="https://galilei.co.uk">
+    <span class="num">03</span>
+    <span class="name">Galilei<span class="role">Software Engineer — private investment office</span></span>
+    <span class="meta"><span class="mono">2022 — 24</span><span class="mono">2 yrs</span></span>
+  </a>
+
+  <div class="foot reveal" style="animation-delay:0.68s">
+    <a class="mono" href="https://x.com/hmbakhsh">X — @hmbakhsh</a>
+    <a class="mono" href="https://github.com/hmbakhsh">GitHub</a>
+    <a class="mono" href="mailto:h@hbak.co">h@hbak.co</a>
+  </div>
+</div>
+</body>
+</html>

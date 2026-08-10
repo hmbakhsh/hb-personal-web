@@ -10,18 +10,21 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        mono: ["var(--font-jetbrains-mono)", "JetBrains Mono", "monospace"],
+        sans: ["var(--font-geist)", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
       },
       typography: {
         DEFAULT: {
           css: {
-            "--tw-prose-body": "#c7d2fe",
-            "--tw-prose-headings": "#e0e7ff",
-            "--tw-prose-links": "#818cf8",
-            "--tw-prose-bold": "#e0e7ff",
-            "--tw-prose-code": "#c7d2fe",
-            "--tw-prose-pre-bg": "#1e1b4b",
-            "--tw-prose-pre-code": "#c7d2fe",
+            "--tw-prose-body": "var(--grey-1)",
+            "--tw-prose-headings": "var(--ink)",
+            "--tw-prose-links": "var(--ink)",
+            "--tw-prose-bold": "var(--ink)",
+            "--tw-prose-code": "var(--ink)",
+            "--tw-prose-quotes": "var(--grey-1)",
+            "--tw-prose-hr": "var(--line)",
+            "--tw-prose-th-borders": "var(--line)",
+            "--tw-prose-td-borders": "var(--line)",
           },
         },
       },
