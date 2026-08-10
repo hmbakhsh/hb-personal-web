@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Haroon Bakhsh — V3 Quiet Paper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Public+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #f7f7f4;
+    --card: #ffffff;
+    --ink: #1a1a18;
+    --grey-600: #66665f;
+    --grey-400: #a3a39a;
+    --line: #e6e6e0;
+    --galilei: #21382d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Public Sans", sans-serif;
+    font-weight: 400;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* faint paper grain */
+  body::before {
+    content: "";
+    position: fixed; inset: 0; pointer-events: none; opacity: 0.35;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .page { max-width: 34rem; margin: 0 auto; padding: 7rem 1.5rem 5rem; position: relative; }
+
+  h1 {
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(2.6rem, 8vw, 3.4rem);
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  .intro { margin-top: 1.4rem; color: var(--grey-600); font-size: 1rem; font-weight: 300; }
+  .intro a { color: var(--ink); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--grey-400); }
+  .intro a:hover { text-decoration-color: var(--ink); }
+
+  .label {
+    margin: 3.5rem 0 1rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--grey-400);
+  }
+
+  .card {
+    display: block;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.15rem 1.3rem;
+    margin-bottom: 0.7rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: #d4d4cc;
+    box-shadow: 0 6px 22px rgba(20, 20, 18, 0.06);
+  }
+  .card .top { display: flex; justify-content: space-between; align-items: baseline; }
+  .card h3 { font-size: 1.02rem; font-weight: 500; letter-spacing: -0.01em; }
+  .card .when { font-size: 0.75rem; color: var(--grey-400); font-variant-numeric: tabular-nums; }
+  .card .role { font-family: "Instrument Serif", serif; font-style: italic; font-size: 1rem; color: var(--grey-600); margin-top: 0.15rem; }
+  .card p.desc { margin-top: 0.5rem; font-size: 0.88rem; font-weight: 300; color: var(--grey-600); }
+  .card.galilei:hover { border-color: color-mix(in srgb, var(--galilei) 35%, var(--line)); }
+  .card.galilei:hover h3 { color: var(--galilei); }
+
+  .links { margin-top: 3.5rem; display: flex; gap: 1.6rem; border-top: 1px solid var(--line); padding-top: 1.4rem; }
+  .links a { font-size: 0.85rem; color: var(--grey-600); text-decoration: none; }
+  .links a:hover { color: var(--ink); }
+
+  .reveal { opacity: 0; transform: translateY(8px); animation: fade 0.8s cubic-bezier(0.2, 0.6, 0.2, 1) forwards; }
+  @keyframes fade { to { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+<div class="page">
+  <h1 class="reveal">Haroon Bakhsh</h1>
+  <p class="intro reveal" style="animation-delay:0.12s">
+    Software engineer. Currently leading engineering at
+    <a href="https://36labs.ai">36labs</a>, researching creativity in large
+    language models.
+  </p>
+
+  <p class="label reveal" style="animation-delay:0.24s">Work</p>
+
+  <a class="card reveal" style="animation-delay:0.3s" href="https://36labs.ai">
+    <div class="top"><h3>36labs</h3><span class="when">2025 — now</span></div>
+    <p class="role">Head of Engineering</p>
+    <p class="desc">Leading engineering on research into creativity in large language models.</p>
+  </a>
+
+  <a class="card reveal" style="animation-delay:0.38s" href="https://prismpms.com">
+    <div class="top"><h3>Prism</h3><span class="when">2024 —</span></div>
+    <p class="role">Founder</p>
+    <p class="desc">Founded property management software company. Product and engineering from zero.</p>
+  </a>
+
+  <a class="card galilei reveal" style="animation-delay:0.46s" href="https://galilei.co.uk">
+    <div class="top"><h3>Galilei Investment Office</h3><span class="when">2022 — 2024</span></div>
+    <p class="role">Software Engineer</p>
+    <p class="desc">Two years building software for a private investment office.</p>
+  </a>
+
+  <div class="links reveal" style="animation-delay:0.56s">
+    <a href="https://x.com/hmbakhsh">X</a>
+    <a href="https://github.com/hmbakhsh">GitHub</a>
+    <a href="mailto:h@hbak.co">h@hbak.co</a>
+  </div>
+</div>
+</body>
+</html>
