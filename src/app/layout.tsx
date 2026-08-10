@@ -19,7 +19,8 @@ export const metadata: Metadata = {
   description:
     "Member of Technical Staff at 36 Labs, researching creativity in large language models.",
   icons: {
-    icon: "/favicon.jpg",
+    icon: "/hb-icon.png",
+    apple: "/hb-icon.png",
   },
 };
 
