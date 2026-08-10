@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { getAllArticles } from "@/lib/articles";
-
 const work = [
   {
     name: "36Labs",
@@ -38,8 +35,6 @@ const links = [
 ];
 
 export default function Home() {
-  const articles = getAllArticles();
-
   return (
     <div className="mx-auto max-w-[30rem] px-6 pb-24 pt-32">
       <header className="reveal">
@@ -98,32 +93,7 @@ export default function Home() {
         ))}
       </section>
 
-      <section className="mt-16">
-        <p
-          className="reveal mb-2 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--grey-2)]"
-          style={{ animationDelay: "0.35s" }}
-        >
-          Writing
-        </p>
-
-        {articles.map((article, i) => (
-          <Link
-            key={article.frontmatter.slug}
-            href={`/blog/${article.frontmatter.slug}`}
-            className="reveal group flex items-baseline justify-between gap-4 border-t border-[var(--line)] py-3 last:border-b"
-            style={{ animationDelay: `${0.4 + i * 0.05}s` }}
-          >
-            <span className="truncate text-sm text-[var(--ink)] underline-offset-[3px] group-hover:underline group-hover:decoration-[var(--grey-2)]">
-              {article.frontmatter.title}
-            </span>
-            <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--grey-2)]">
-              {article.frontmatter.date}
-            </span>
-          </Link>
-        ))}
-      </section>
-
-      <div className="reveal mt-16 flex gap-6" style={{ animationDelay: "0.6s" }}>
+      <div className="reveal mt-16 flex gap-6" style={{ animationDelay: "0.4s" }}>
         {links.map((link) => (
           <a
             key={link.label}
