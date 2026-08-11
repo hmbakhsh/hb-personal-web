@@ -36,12 +36,12 @@ const links = [
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-[30rem] px-6 pb-24 pt-32">
+    <div className="mx-auto max-w-[36rem] px-6 pb-24 pt-32">
       <header className="reveal">
-        <h1 className="text-[15px] font-semibold tracking-tight">
+        <h1 className="text-[18px] font-semibold tracking-tight">
           Haroon Bakhsh
         </h1>
-        <p className="mt-0.5 text-sm leading-relaxed text-[var(--grey-1)]">
+        <p className="mt-0.5 text-[17px] leading-relaxed text-[var(--grey-1)]">
           Member of Technical Staff at{" "}
           <a
             href="https://36labs.ai"
@@ -55,7 +55,7 @@ export default function Home() {
 
       <section className="mt-16">
         <p
-          className="reveal mb-2 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--grey-2)]"
+          className="reveal mb-2 font-mono text-[13px] uppercase tracking-[0.1em] text-[var(--grey-2)]"
           style={{ animationDelay: "0.1s" }}
         >
           Work
@@ -65,27 +65,27 @@ export default function Home() {
           <a
             key={job.name}
             href={job.url}
-            className="reveal group flex items-start gap-3.5 border-t border-[var(--line)] py-5 last:border-b"
+            className="reveal group flex items-start gap-4 border-t border-[var(--line)] py-5 last:border-b"
             style={{ animationDelay: `${0.15 + i * 0.07}s` }}
           >
             <img
               src={job.logo}
               alt={job.name}
-              className="mt-px h-[22px] w-[22px] shrink-0 rounded-[5px] object-contain opacity-85 grayscale transition-all duration-200 group-hover:opacity-100 group-hover:grayscale-0"
+              className="mt-px h-[26px] w-[26px] shrink-0 rounded-[6px] object-contain opacity-85 grayscale transition-all duration-200 group-hover:opacity-100 group-hover:grayscale-0"
             />
             <div className="min-w-0 flex-1">
               <div className="flex items-baseline justify-between gap-4">
-                <h2 className="text-sm font-medium tracking-tight underline-offset-[3px] group-hover:underline group-hover:decoration-[var(--grey-2)]">
+                <h2 className="text-[17px] font-medium tracking-tight underline-offset-[3px] group-hover:underline group-hover:decoration-[var(--grey-2)]">
                   {job.name}{" "}
                   <span className="font-normal text-[var(--grey-1)]">
                     {job.role}
                   </span>
                 </h2>
-                <span className="font-mono text-[11px] tabular-nums text-[var(--grey-2)]">
+                <span className="font-mono text-[13px] tabular-nums text-[var(--grey-2)]">
                   {job.dates}
                 </span>
               </div>
-              <p className="mt-1.5 max-w-96 text-[13px] leading-relaxed text-[var(--grey-1)]">
+              <p className="mt-1.5 max-w-[29rem] text-[16px] leading-relaxed text-[var(--grey-1)]">
                 {job.description}
               </p>
             </div>
@@ -98,9 +98,9 @@ export default function Home() {
           <a
             key={link.label}
             href={link.url}
-            className="font-mono text-xs text-[var(--grey-1)] transition-colors hover:text-[var(--ink)]"
+            className="font-mono text-sm text-[var(--grey-1)] transition-colors hover:text-[var(--ink)]"
           >
-            <span className="text-[10px] text-[var(--grey-2)]">↗ </span>
+            <span className="text-[12px] text-[var(--grey-2)]">↗ </span>
             {link.label}
           </a>
         ))}
