@@ -1,7 +1,7 @@
 const work = [
   {
-    name: "36Labs",
-    role: "Member of Technical Staff",
+    name: "36 Labs",
+    role: "Head of Engineering",
     url: "https://36labs.ai",
     logo: "/logos/36labs.svg",
     dates: "2026 –",
