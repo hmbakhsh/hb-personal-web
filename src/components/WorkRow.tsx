@@ -72,7 +72,7 @@ export default function WorkRow({ job, delay }: { job: Job; delay: number }) {
 
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-10 flex items-center justify-end pr-1"
+        className="pointer-events-none absolute inset-0 z-10 hidden items-center justify-end pr-1 [@media(hover:hover)]:flex"
       >
         <img
           src={job.preview}
