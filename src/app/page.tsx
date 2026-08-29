@@ -42,7 +42,7 @@ const links = [
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-[36rem] px-6 pb-24 pt-32">
+    <div className="mx-auto max-w-[36rem] px-6 pb-24 pt-24 sm:pt-32">
       <header className="reveal">
         <Avatar />
         <h1 className="mt-5 text-[18px] font-semibold tracking-tight">
