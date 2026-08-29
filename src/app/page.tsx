@@ -1,9 +1,13 @@
+import Avatar from "@/components/Avatar";
+import WorkRow from "@/components/WorkRow";
+
 const work = [
   {
     name: "36 Labs",
     role: "Head of Engineering",
     url: "https://36labs.ai",
     logo: "/logos/36labs.svg",
+    preview: "/previews/36labs.jpg",
     dates: "2026 –",
     description:
       "Autonomous creative intelligence. Leading research and engineering on creativity in large language models.",
@@ -13,6 +17,7 @@ const work = [
     role: "Founder",
     url: "https://prismpms.com",
     logo: "/logos/prism.png",
+    preview: "/previews/prism.jpg",
     dates: "2024 – 25",
     description:
       "Cloud-native practice management for independent opticians: clinical records, dispensing, and retail in one platform. Built product and engineering from zero.",
@@ -22,6 +27,7 @@ const work = [
     role: "Software Engineer",
     url: "https://galilei.co.uk",
     logo: "/logos/galilei-mark.svg",
+    preview: "/previews/galilei.jpg",
     dates: "2022 – 24",
     description:
       "Wealth management firm running institutional multi-asset portfolios with alternative allocations for families, charities, and foundations. Built the firm's data pipelines from scratch.",
@@ -38,7 +44,8 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-[36rem] px-6 pb-24 pt-32">
       <header className="reveal">
-        <h1 className="text-[18px] font-semibold tracking-tight">
+        <Avatar />
+        <h1 className="mt-5 text-[18px] font-semibold tracking-tight">
           Haroon Bakhsh
         </h1>
         <p className="mt-0.5 text-[17px] leading-relaxed text-[var(--grey-1)]">
@@ -62,34 +69,7 @@ export default function Home() {
         </p>
 
         {work.map((job, i) => (
-          <a
-            key={job.name}
-            href={job.url}
-            className="reveal group flex items-start gap-4 border-t border-[var(--line)] py-5 last:border-b"
-            style={{ animationDelay: `${0.15 + i * 0.07}s` }}
-          >
-            <img
-              src={job.logo}
-              alt={job.name}
-              className="mt-px h-[26px] w-[26px] shrink-0 rounded-[6px] object-contain opacity-85 grayscale transition-all duration-200 group-hover:opacity-100 group-hover:grayscale-0"
-            />
-            <div className="min-w-0 flex-1">
-              <div className="flex items-baseline justify-between gap-4">
-                <h2 className="text-[17px] font-medium tracking-tight underline-offset-[3px] group-hover:underline group-hover:decoration-[var(--grey-2)]">
-                  {job.name}{" "}
-                  <span className="font-normal text-[var(--grey-1)]">
-                    {job.role}
-                  </span>
-                </h2>
-                <span className="font-mono text-[13px] tabular-nums text-[var(--grey-2)]">
-                  {job.dates}
-                </span>
-              </div>
-              <p className="mt-1.5 max-w-[29rem] text-[16px] leading-relaxed text-[var(--grey-1)]">
-                {job.description}
-              </p>
-            </div>
-          </a>
+          <WorkRow key={job.name} job={job} delay={0.15 + i * 0.07} />
         ))}
       </section>
 
