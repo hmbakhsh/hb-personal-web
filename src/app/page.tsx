@@ -4,7 +4,7 @@ import WorkRow from "@/components/WorkRow";
 const work = [
   {
     name: "36 Labs",
-    role: "Head of Engineering",
+    role: "CTO",
     url: "https://36labs.ai",
     logo: "/logos/36labs.svg",
     preview: "/previews/36labs.jpg",
