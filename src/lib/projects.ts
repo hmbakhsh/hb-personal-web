@@ -16,7 +16,7 @@ export const projects: Project[] = [
   },
   {
     slug: "notch",
-    name: "Notch Island",
+    name: "Notch",
     description:
       "Dynamic Island for your Mac",
   },

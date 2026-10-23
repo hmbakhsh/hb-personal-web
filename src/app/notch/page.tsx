@@ -4,7 +4,7 @@ import NotchDemo from "@/components/projects/NotchDemo";
 import { NotchIcon } from "@/components/projects/icons";
 
 export const metadata: Metadata = {
-  title: "Notch Island",
+  title: "Notch",
   description: "Dynamic Island for your Mac",
 };
 
@@ -12,7 +12,7 @@ export default function Notch() {
   return (
     <ProjectPage
       icon={<NotchIcon />}
-      name="Notch Island"
+      name="Notch"
       tagline="Dynamic Island for your Mac"
       demo={<NotchDemo />}
       install={["git clone https://github.com/hmbakhsh/notch-island", "cd notch-island && just install"]}
