@@ -1,10 +1,12 @@
 import Avatar from "@/components/Avatar";
+import ProjectRow from "@/components/ProjectRow";
 import WorkRow from "@/components/WorkRow";
+import { projects } from "@/lib/projects";
 
 const work = [
   {
     name: "36 Labs",
-    role: "Head of Engineering",
+    role: "CTO",
     url: "https://36labs.ai",
     logo: "/logos/36labs.svg",
     preview: "/previews/36labs.jpg",
@@ -37,6 +39,7 @@ const work = [
 const links = [
   { label: "x.com/hmbakhsh", url: "https://x.com/hmbakhsh" },
   { label: "github", url: "https://github.com/hmbakhsh" },
+  { label: "linkedin", url: "https://www.linkedin.com/in/haroonbakhsh1" },
   { label: "h@hbak.co", url: "mailto:h@hbak.co" },
 ];
 
@@ -73,7 +76,21 @@ export default function Home() {
         ))}
       </section>
 
-      <div className="reveal mt-16 flex gap-6" style={{ animationDelay: "0.4s" }}>
+      <details className="group/tinker mt-16">
+        <summary
+          className="reveal mb-2 flex w-fit cursor-pointer list-none items-center gap-2 font-mono text-[13px] uppercase tracking-[0.1em] text-[var(--grey-2)] transition-colors hover:text-[var(--grey-1)] [&::-webkit-details-marker]:hidden"
+          style={{ animationDelay: "0.35s" }}
+        >
+          Tinkering
+          <span className="transition-transform duration-200 group-open/tinker:rotate-45">+</span>
+        </summary>
+
+        {projects.map((project, i) => (
+          <ProjectRow key={project.slug} project={project} delay={i * 0.07} />
+        ))}
+      </details>
+
+      <div className="reveal mt-16 flex gap-6" style={{ animationDelay: "0.55s" }}>
         {links.map((link) => (
           <a
             key={link.label}

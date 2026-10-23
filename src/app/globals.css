@@ -8,6 +8,8 @@
   --grey-1: #555555;
   --grey-2: #999999;
   --line: #ebebeb;
+  --rootie-work: #2459ff;
+  --rootie-personal: #16a34a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +19,8 @@
     --grey-1: #a3a3a3;
     --grey-2: #6b6b6b;
     --line: #242424;
+    --rootie-work: #8aa4ff;
+    --rootie-personal: #6fd39a;
   }
 }
 
@@ -43,5 +47,42 @@
     animation: none;
     opacity: 1;
     transform: none;
+  }
+}
+
+@keyframes rootie-travel {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(400%);
+  }
+}
+
+@keyframes click-ripple {
+  from {
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.6);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes tab-in {
+  from {
+    opacity: 0;
+    max-width: 0;
+  }
+  to {
+    opacity: 1;
+    max-width: 140px;
   }
 }
