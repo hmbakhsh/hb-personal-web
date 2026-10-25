@@ -5,6 +5,15 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/schedule",
+        destination: "https://cal.com/haroon-bakhsh",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
