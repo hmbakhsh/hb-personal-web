@@ -12,6 +12,16 @@ const nextConfig: NextConfig = {
         destination: "https://cal.com/haroon-bakhsh",
         permanent: false,
       },
+      {
+        source: "/schedule/15",
+        destination: "https://cal.com/haroon-bakhsh/15-min-call",
+        permanent: false,
+      },
+      {
+        source: "/schedule/30",
+        destination: "https://cal.com/haroon-bakhsh/30-min-call-or-coffee",
+        permanent: false,
+      },
     ];
   },
 };
