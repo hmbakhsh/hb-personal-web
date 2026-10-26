@@ -22,6 +22,11 @@ const nextConfig: NextConfig = {
         destination: "https://cal.com/haroon-bakhsh/30-min-call-or-coffee",
         permanent: false,
       },
+      {
+        source: "/schedule/36-cto-first-interview",
+        destination: "https://cal.com/haroon-bakhsh/36-cto-first-interview",
+        permanent: false,
+      },
     ];
   },
 };
