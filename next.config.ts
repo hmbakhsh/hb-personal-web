@@ -27,6 +27,12 @@ const nextConfig: NextConfig = {
         destination: "https://cal.com/haroon-bakhsh/36-cto-first-interview",
         permanent: false,
       },
+      {
+        source: "/schedule/36c",
+        destination:
+          "https://calendar.google.com/calendar/appointments/schedules/AcZssZ25Zl5yONUH44Ynh7ofsDQTgF3fir4_RvVLiMEcyIwPl5Y87I1kSVq4Ky2P8NOwSgHIooiGqUF2",
+        permanent: false,
+      },
     ];
   },
 };
