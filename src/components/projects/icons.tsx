@@ -41,3 +41,12 @@ export function NotchIcon({ className }: { className?: string }) {
     </svg>
   );
 }
+
+export function HackyIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 64 64" className={className} aria-hidden>
+      <rect width="64" height="64" rx="14" fill="#000" />
+      <path d="M18 12h5.2v17.4h17.6V12H46v40h-5.2V34H23.2v18H18z" fill="#fff" />
+    </svg>
+  );
+}

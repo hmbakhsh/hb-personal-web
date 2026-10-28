@@ -1,14 +1,14 @@
 import type { Project } from "@/lib/projects";
-import { NotchIcon, RootieIcon } from "@/components/projects/icons";
+import { HackyIcon, NotchIcon, RootieIcon } from "@/components/projects/icons";
 
-const icons = { rootie: RootieIcon, notch: NotchIcon };
+const icons = { rootie: RootieIcon, notch: NotchIcon, hacky: HackyIcon };
 
 export default function ProjectRow({ project, delay }: { project: Project; delay: number }) {
   const Icon = icons[project.slug];
 
   return (
     <a
-      href={`https://${project.slug}.hbak.co`}
+      href={project.url ?? `https://${project.slug}.hbak.co`}
       className="reveal group flex items-start gap-4 border-t border-[var(--line)] py-5 last:border-b"
       style={{ animationDelay: `${delay}s` }}
     >
