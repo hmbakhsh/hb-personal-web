@@ -47,13 +47,13 @@ export default function WorkRow({ job, delay }: { job: Job; delay: number }) {
         setOffset({ x: 0, y: 0 });
         liftTimer.current = setTimeout(() => setLifted(false), 300);
       }}
-      className="reveal group relative flex items-start gap-4 border-t border-[var(--line)] py-5 last:border-b"
+      className="reveal reveal-near group relative flex items-start gap-4 border-t border-[var(--line)] py-5 last:border-b"
       style={{ animationDelay: `${delay}s`, zIndex: lifted ? 20 : undefined }}
     >
       <img
         src={job.logo}
         alt={job.name}
-        className="mt-px h-[26px] w-[26px] shrink-0 rounded-[6px] object-contain opacity-85 grayscale transition-all duration-200 group-hover:opacity-100 group-hover:grayscale-0"
+        className="mt-px h-[26px] w-[26px] shrink-0 rounded-[6px] object-contain opacity-85 grayscale transition-[opacity,filter] duration-150 group-hover:opacity-100 group-hover:grayscale-0"
       />
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline justify-between gap-4">
@@ -72,12 +72,13 @@ export default function WorkRow({ job, delay }: { job: Job; delay: number }) {
 
       <span
         aria-hidden
+        data-snapshot-skip
         className="pointer-events-none absolute inset-0 z-10 hidden items-center justify-end pr-1 [@media(hover:hover)]:flex"
       >
         <img
           src={job.preview}
           alt=""
-          className="w-[260px] rounded-[10px] bg-[var(--bg)] shadow-[0_10px_40px_rgba(0,0,0,0.28)] transition-[opacity,transform] duration-300 ease-out"
+          className="w-[260px] rounded-[10px] bg-[var(--bg)] shadow-[0_10px_40px_rgba(0,0,0,0.28)] origin-right transition-[opacity,transform] duration-200 ease-strong"
           style={{
             opacity: hovered ? 1 : 0,
             transform: `translate3d(${offset.x * 18}px, ${

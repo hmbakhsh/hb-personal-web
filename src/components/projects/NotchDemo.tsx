@@ -82,6 +82,8 @@ const HOVER_MS = 750;
 // bouncing, after the content has already faded out.
 const OPEN_EASE = "cubic-bezier(0.34, 1.32, 0.64, 1)";
 const CLOSE_EASE = "cubic-bezier(0.3, 0, 0.15, 1)";
+const OUT_EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
+const MOVE_EASE = "cubic-bezier(0.77, 0, 0.175, 1)";
 
 export default function NotchDemo() {
   // `next` is the scene about to play; `shown` is what the open island holds.
@@ -136,8 +138,8 @@ export default function NotchDemo() {
       ? SWITCHER_HEIGHT
       : BANNER_HEIGHT;
   const shape = open
-    ? `width 520ms ${OPEN_EASE}, height 520ms ${OPEN_EASE}, border-radius 400ms ease-out, box-shadow 300ms`
-    : `width 360ms ${CLOSE_EASE} 110ms, height 360ms ${CLOSE_EASE} 110ms, border-radius 300ms ease-in 110ms, box-shadow 300ms 110ms`;
+    ? `width 520ms ${OPEN_EASE}, height 520ms ${OPEN_EASE}, border-radius 400ms ${OUT_EASE}, box-shadow 300ms`
+    : `width 360ms ${CLOSE_EASE} 110ms, height 360ms ${CLOSE_EASE} 110ms, border-radius 300ms ${OUT_EASE} 110ms, box-shadow 300ms 110ms`;
   const caption = (open ? shown : scenes[next]).command;
 
   return (
@@ -170,8 +172,8 @@ export default function NotchDemo() {
               opacity: open ? 1 : 0,
               transform: open ? "scale(1)" : "scale(0.97)",
               transition: open
-                ? "opacity 220ms ease-out 140ms, transform 260ms ease-out 140ms"
-                : "opacity 110ms ease-in, transform 110ms ease-in",
+                ? `opacity 220ms ${OUT_EASE} 140ms, transform 260ms ${OUT_EASE} 140ms`
+                : `opacity 110ms ${OUT_EASE}, transform 110ms ${OUT_EASE}`,
             }}
           >
             {shown.kind === "banner" ? (
@@ -302,7 +304,7 @@ function Wings({ counts, visible }: { counts: Counts; visible: boolean }) {
       style={{
         height: NOTCH.height,
         opacity: visible ? 1 : 0,
-        transition: visible ? "opacity 200ms ease-out 380ms" : "opacity 80ms",
+        transition: visible ? `opacity 200ms ${OUT_EASE} 380ms` : "opacity 80ms",
       }}
     >
       <span className="flex items-center justify-center gap-[5px]" style={{ width: WING }}>
@@ -362,8 +364,8 @@ function Cursor({ visible }: { visible: boolean }) {
         transform: visible ? "translate(24px, 14px)" : "translate(110px, 150px)",
         opacity: visible ? 1 : 0,
         transition: visible
-          ? "transform 700ms cubic-bezier(0.4, 0, 0.2, 1), opacity 200ms"
-          : "transform 500ms ease-in, opacity 250ms",
+          ? `transform 700ms ${MOVE_EASE}, opacity 200ms`
+          : `transform 500ms ${MOVE_EASE}, opacity 250ms`,
       }}
     >
       <path

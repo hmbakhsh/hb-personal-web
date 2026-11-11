@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: "/rootie", destination: "/projects/rootie", permanent: false },
+      { source: "/notch", destination: "/projects/notch", permanent: false },
       {
         source: "/schedule",
         destination: "https://cal.com/haroon-bakhsh",

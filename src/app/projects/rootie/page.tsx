@@ -34,7 +34,7 @@ export default function Rootie() {
       links={[
         { label: "github", url: "https://github.com/hmbakhsh/rootie" },
         { label: "releases", url: "https://github.com/hmbakhsh/rootie/releases/latest" },
-        { label: "hbak.co", url: "https://hbak.co" },
+        { label: "hbak.co", url: "/" },
       ]}
     />
   );

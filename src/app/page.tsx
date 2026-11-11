@@ -36,6 +36,10 @@ const work = [
   },
 ];
 
+// Seconds. Gaps shrink down the page so the entrance reads as one wave.
+const WORK_DELAYS = [0.12, 0.2, 0.26];
+const PROJECT_DELAYS = [0.34, 0.38, 0.41];
+
 const links = [
   { label: "x.com/hmbakhsh", url: "https://x.com/hmbakhsh" },
   { label: "github", url: "https://github.com/hmbakhsh" },
@@ -61,47 +65,45 @@ export default function Home() {
           </a>
           , researching creativity in large language models.
         </p>
+        <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+          {links.map((link) => (
+            <a
+              key={link.label}
+              href={link.url}
+              className="whitespace-nowrap font-mono text-sm text-[var(--grey-1)] transition-colors hover:text-[var(--ink)]"
+            >
+              <span className="text-[12px] text-[var(--grey-2)]">↗ </span>
+              {link.label}
+            </a>
+          ))}
+        </div>
       </header>
 
       <section className="mt-16">
         <p
-          className="reveal mb-2 font-mono text-[13px] uppercase tracking-[0.1em] text-[var(--grey-2)]"
-          style={{ animationDelay: "0.1s" }}
+          className="reveal-fade mb-2 font-mono text-[13px] uppercase tracking-[0.1em] text-[var(--grey-2)]"
+          style={{ animationDelay: "0.08s" }}
         >
           Work
         </p>
 
         {work.map((job, i) => (
-          <WorkRow key={job.name} job={job} delay={0.15 + i * 0.07} />
+          <WorkRow key={job.name} job={job} delay={WORK_DELAYS[i]} />
         ))}
       </section>
 
-      <details className="group/tinker mt-16">
-        <summary
-          className="reveal mb-2 flex w-fit cursor-pointer list-none items-center gap-2 font-mono text-[13px] uppercase tracking-[0.1em] text-[var(--grey-2)] transition-colors hover:text-[var(--grey-1)] [&::-webkit-details-marker]:hidden"
-          style={{ animationDelay: "0.35s" }}
+      <section className="mt-16">
+        <p
+          className="reveal-fade mb-2 font-mono text-[13px] uppercase tracking-[0.1em] text-[var(--grey-2)]"
+          style={{ animationDelay: "0.3s" }}
         >
-          Tinkering
-          <span className="transition-transform duration-200 group-open/tinker:rotate-45">+</span>
-        </summary>
+          Side projects
+        </p>
 
         {projects.map((project, i) => (
-          <ProjectRow key={project.slug} project={project} delay={i * 0.07} />
+          <ProjectRow key={project.slug} project={project} delay={PROJECT_DELAYS[Math.min(i, PROJECT_DELAYS.length - 1)]} />
         ))}
-      </details>
-
-      <div className="reveal mt-16 flex gap-6" style={{ animationDelay: "0.55s" }}>
-        {links.map((link) => (
-          <a
-            key={link.label}
-            href={link.url}
-            className="font-mono text-sm text-[var(--grey-1)] transition-colors hover:text-[var(--ink)]"
-          >
-            <span className="text-[12px] text-[var(--grey-2)]">↗ </span>
-            {link.label}
-          </a>
-        ))}
-      </div>
+      </section>
     </div>
   );
 }

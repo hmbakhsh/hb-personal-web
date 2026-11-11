@@ -1,16 +1,17 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-// Serve each side project's page at the root of its own subdomain,
-// e.g. rootie.hbak.co → /rootie. Locally: rootie.localhost:3000.
+// Old subdomains send people to the project's page on the main site, so every
+// page shares an origin and can use page transitions. Locally: rootie.localhost:3000.
 const subdomains = ["rootie", "notch"];
 
 export function proxy(request: NextRequest) {
-  const sub = request.headers.get("host")?.split(".")[0];
+  const [sub, ...rest] = request.headers.get("host")?.split(".") ?? [];
   if (!sub || !subdomains.includes(sub)) return;
 
   const url = request.nextUrl.clone();
-  url.pathname = `/${sub}`;
-  return NextResponse.rewrite(url);
+  url.host = rest.join(".");
+  url.pathname = `/projects/${sub}`;
+  return NextResponse.redirect(url);
 }
 
 export const config = {

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import EntranceOnFirstLoad from "@/components/EntranceOnFirstLoad";
+import { PageTransitionProvider } from "@/components/PageTransition";
 import "./globals.css";
 
 const geist = Geist({
@@ -31,8 +33,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+      <head>
+        <noscript>
+          <style>{`.intro-cover { display: none; }`}</style>
+        </noscript>
+      </head>
       <body className="bg-[var(--bg)] text-[var(--ink)] font-sans antialiased">
-        {children}
+        <PageTransitionProvider>
+          <EntranceOnFirstLoad />
+          {children}
+        </PageTransitionProvider>
       </body>
     </html>
   );
