@@ -7,8 +7,15 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./content/**/*.mdx",
   ],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   theme: {
     extend: {
+      transitionTimingFunction: {
+        DEFAULT: "ease",
+        strong: "var(--ease-out)",
+      },
       fontFamily: {
         sans: ["var(--font-geist)", "sans-serif"],
         mono: ["var(--font-geist-mono)", "monospace"],

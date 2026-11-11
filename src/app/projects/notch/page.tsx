@@ -33,7 +33,7 @@ export default function Notch() {
       ]}
       links={[
         { label: "github", url: "https://github.com/hmbakhsh/notch-island" },
-        { label: "hbak.co", url: "https://hbak.co" },
+        { label: "hbak.co", url: "/" },
       ]}
     />
   );

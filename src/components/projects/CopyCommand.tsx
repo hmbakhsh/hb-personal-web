@@ -21,7 +21,7 @@ export default function CopyCommand({ lines }: { lines: string[] }) {
       ))}
       <button
         onClick={copy}
-        className="absolute right-3 top-3 rounded-[6px] px-2 py-0.5 text-[12px] text-[var(--grey-2)] transition-colors hover:bg-[var(--line)] hover:text-[var(--ink)]"
+        className="absolute right-3 top-3 min-w-[54px] rounded-[6px] px-2 py-0.5 text-center text-[12px] text-[var(--grey-2)] transition-[color,background-color,transform] duration-150 active:scale-[0.97] hover:bg-[var(--line)] hover:text-[var(--ink)]"
       >
         {copied ? "copied" : "copy"}
       </button>

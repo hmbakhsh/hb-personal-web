@@ -1,5 +1,5 @@
-// Projects in the homepage's Tinkering section. Each has its own page at /<slug>,
-// served at <slug>.hbak.co by src/proxy.ts, unless it sets its own url.
+// Projects in the homepage's Side projects section. Each has its own page at
+// /projects/<slug>, unless it sets its own url.
 
 export type Project = {
   slug: "rootie" | "notch" | "hacky";

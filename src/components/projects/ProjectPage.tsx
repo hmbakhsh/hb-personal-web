@@ -1,3 +1,4 @@
+import { PageLink } from "@/components/PageTransition";
 import CopyCommand from "./CopyCommand";
 
 type Note = { title: string; body: string };
@@ -32,18 +33,18 @@ export default function ProjectPage({
         <p className="mt-0.5 text-[17px] leading-relaxed text-[var(--grey-1)]">{tagline}</p>
       </header>
 
-      <div className="reveal mt-12" style={{ animationDelay: "0.1s" }}>
+      <div className="demo reveal mt-12" style={{ animationDelay: "0.08s" }}>
         {demo}
       </div>
 
-      <Section label="Install" delay={0.2}>
+      <Section label="Install" delay={0.16}>
         <CopyCommand lines={install} />
         {installNote && (
           <p className="mt-3 text-[14px] leading-relaxed text-[var(--grey-2)]">{installNote}</p>
         )}
       </Section>
 
-      <Section label="Notes" delay={0.27}>
+      <Section label="Notes" delay={0.22}>
         {notes.map((note) => (
           <div
             key={note.title}
@@ -55,17 +56,23 @@ export default function ProjectPage({
         ))}
       </Section>
 
-      <div className="reveal mt-16 flex flex-wrap gap-x-6 gap-y-2" style={{ animationDelay: "0.34s" }}>
-        {links.map((link) => (
-          <a
-            key={link.label}
-            href={link.url}
-            className="font-mono text-sm text-[var(--grey-1)] transition-colors hover:text-[var(--ink)]"
-          >
-            <span className="text-[12px] text-[var(--grey-2)]">↗ </span>
-            {link.label}
-          </a>
-        ))}
+      <div className="reveal-fade mt-16 flex flex-wrap gap-x-6 gap-y-2" style={{ animationDelay: "0.26s" }}>
+        {links.map((link) => {
+          const className =
+            "whitespace-nowrap font-mono text-sm text-[var(--grey-1)] transition-colors hover:text-[var(--ink)]";
+          const arrow = <span className="text-[12px] text-[var(--grey-2)]">↗ </span>;
+          return link.url.startsWith("/") ? (
+            <PageLink key={link.label} href={link.url} className={className}>
+              {arrow}
+              {link.label}
+            </PageLink>
+          ) : (
+            <a key={link.label} href={link.url} className={className}>
+              {arrow}
+              {link.label}
+            </a>
+          );
+        })}
       </div>
     </div>
   );

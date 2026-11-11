@@ -125,7 +125,7 @@ export default function RootieDemo() {
       aria-hidden
     >
       {/* Opacity-only fade: a transform here would throw off the cursor target. */}
-      <div key={i} className="animate-[fade-in_0.4s_ease-out]">
+      <div key={i} className="animate-[fade-in_0.4s_var(--ease-out)]">
         <p className="flex gap-3 font-mono text-[12px] text-[var(--grey-2)]">
           <span>{click.app}</span>
           <span>{click.place}</span>
@@ -160,7 +160,7 @@ export default function RootieDemo() {
         <span className="relative h-px flex-1 overflow-hidden bg-[var(--line)]">
           {at(phase, "route") && (
             <span
-              className="absolute inset-y-0 left-0 w-1/4 animate-[rootie-travel_0.9s_ease-out_forwards]"
+              className="absolute inset-y-0 left-0 w-1/4 animate-[rootie-travel_0.9s_var(--ease-out)_forwards]"
               style={{ background: ACCENT }}
             />
           )}
@@ -188,7 +188,7 @@ export default function RootieDemo() {
       {at(phase, "click") && (
         <span
           key={`ripple-${i}`}
-          className="pointer-events-none absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 animate-[click-ripple_0.5s_ease-out_forwards] rounded-full"
+          className="pointer-events-none absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 animate-[click-ripple_0.5s_var(--ease-out)_forwards] rounded-full"
           style={{ left: cursor.target.x, top: cursor.target.y, background: ACCENT }}
         />
       )}
@@ -249,7 +249,7 @@ function BrowserWindow({
 
   return (
     <div
-      className="min-w-0 overflow-hidden rounded-[10px] border transition-[border-color,opacity,box-shadow,transform] duration-300"
+      className="min-w-0 overflow-hidden rounded-[10px] border transition-[border-color,opacity,box-shadow,transform] duration-300 ease-strong"
       style={{
         borderColor: url ? profile.color : tint(30),
         boxShadow: url ? `0 8px 24px ${tint(18)}` : "none",
@@ -278,7 +278,7 @@ function BrowserWindow({
           {url && (
             <span
               key={cycle}
-              className="animate-[tab-in_0.35s_ease-out] truncate rounded-[5px] bg-[var(--bg)] px-1.5 py-0.5 text-[10.5px] font-medium"
+              className="animate-[tab-in_0.35s_var(--ease-out)] truncate rounded-[5px] bg-[var(--bg)] px-1.5 py-0.5 text-[10.5px] font-medium"
             >
               {url.split("/")[0]}
             </span>
