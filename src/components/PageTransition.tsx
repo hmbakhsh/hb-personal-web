@@ -19,6 +19,10 @@ import { domToCanvas } from "modern-screenshot";
 import { createWaterShader, type WaterShader } from "@/lib/waterShader";
 
 const MAX_DPR = 2;
+// Safari draws a snapshot's images only on a later redraw. The library waits
+// 100ms per image for that by default, nearly a second on this page; a few ms
+// still draws every image.
+const SAFARI_REDRAW_MS = 8;
 const SWEEP_MS = 1050;
 const COMMIT_TIMEOUT_MS = 4000;
 const SNAPSHOT_FRESH_MS = 2500;
@@ -37,9 +41,6 @@ const SNAPSHOT_SKIP_ATTRIBUTE = "data-snapshot-skip";
 
 // If scripts haven't finished by then, the page shows without the intro.
 const INTRO_DEADLINE_MS = process.env.NODE_ENV === "development" ? 15000 : 3500;
-
-// Touch screens skip the first-load sweep. Keep in sync with globals.css.
-const NO_INTRO_QUERY = "(hover: none)";
 
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 const smoothstep = (t: number) => t * t * (3 - 2 * t);
@@ -66,6 +67,7 @@ async function snapshotViewport() {
     backgroundColor: getComputedStyle(document.body).backgroundColor,
     // Without this the clone picks up the browser's default 8px body margin.
     style: { margin: "0" },
+    drawImageInterval: SAFARI_REDRAW_MS,
     filter: (node) =>
       !(node instanceof Element) ||
       !(
@@ -242,7 +244,6 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
     const waterCanvas = waterCanvasRef.current;
     const bandCanvas = bandCanvasRef.current;
     if (!cover || !overlay || !waterCanvas || !bandCanvas || prefersReducedMotion()) return;
-    if (window.matchMedia(NO_INTRO_QUERY).matches) return;
 
     let destroy = () => {};
     (async () => {
@@ -251,6 +252,9 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
         await document.fonts.ready;
         await Promise.all([...document.images].map((image) => image.decode().catch(() => {})));
 
+        // Photographing waits on fetches and timers, so the shaders compile meanwhile.
+        const pageShot = snapshotViewport();
+        pageShot.catch(() => {}); // Awaited below, which reports a failure.
         const { width, height } = viewportSize();
         const water = createWaterShader(waterCanvas, {
           cssWidth: width,
@@ -276,7 +280,7 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
           band?.destroy();
         };
 
-        const page = await snapshotViewport();
+        const page = await pageShot;
         if (performance.now() > INTRO_DEADLINE_MS) return;
 
         water.setImages(solidImage(getComputedStyle(document.body).backgroundColor), page);

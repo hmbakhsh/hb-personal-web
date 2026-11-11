@@ -40,14 +40,6 @@
   animation: intro-failsafe 0s linear forwards;
 }
 
-/* Phones wait too long for scripts before the sweep can start, so they get the
-   CSS entrance from first paint instead. Keep in sync with NO_INTRO_QUERY. */
-@media (hover: none) {
-  .intro-cover {
-    display: none;
-  }
-}
-
 @keyframes intro-failsafe {
   to {
     visibility: hidden;
