@@ -40,11 +40,12 @@ const work = [
 const WORK_DELAYS = [0.12, 0.2, 0.26];
 const PROJECT_DELAYS = [0.34, 0.38, 0.41];
 
+// Phones get the short label so all four fit on one row.
 const links = [
-  { label: "x.com/hmbakhsh", url: "https://x.com/hmbakhsh" },
+  { label: "x.com/hmbakhsh", short: "x", url: "https://x.com/hmbakhsh" },
   { label: "github", url: "https://github.com/hmbakhsh" },
   { label: "linkedin", url: "https://www.linkedin.com/in/haroonbakhsh1" },
-  { label: "h@hbak.co", url: "mailto:h@hbak.co" },
+  { label: "h@hbak.co", short: "email", url: "mailto:h@hbak.co" },
 ];
 
 export default function Home() {
@@ -65,15 +66,23 @@ export default function Home() {
           </a>
           , researching creativity in large language models.
         </p>
-        <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+        <div className="mt-4 flex justify-between gap-x-4 sm:justify-start sm:gap-x-6">
           {links.map((link) => (
             <a
               key={link.label}
               href={link.url}
+              aria-label={link.label}
               className="whitespace-nowrap font-mono text-sm text-[var(--grey-1)] transition-colors hover:text-[var(--ink)]"
             >
               <span className="text-[12px] text-[var(--grey-2)]">↗ </span>
-              {link.label}
+              {link.short ? (
+                <>
+                  <span className="sm:hidden">{link.short}</span>
+                  <span className="hidden sm:inline">{link.label}</span>
+                </>
+              ) : (
+                link.label
+              )}
             </a>
           ))}
         </div>
