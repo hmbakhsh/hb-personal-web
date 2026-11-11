@@ -38,6 +38,9 @@ const SNAPSHOT_SKIP_ATTRIBUTE = "data-snapshot-skip";
 // If scripts haven't finished by then, the page shows without the intro.
 const INTRO_DEADLINE_MS = process.env.NODE_ENV === "development" ? 15000 : 3500;
 
+// Touch screens skip the first-load sweep. Keep in sync with globals.css.
+const NO_INTRO_QUERY = "(hover: none)";
+
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 const smoothstep = (t: number) => t * t * (3 - 2 * t);
 const easeInOutSine = (t: number) => -(Math.cos(Math.PI * t) - 1) / 2;
@@ -239,6 +242,7 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
     const waterCanvas = waterCanvasRef.current;
     const bandCanvas = bandCanvasRef.current;
     if (!cover || !overlay || !waterCanvas || !bandCanvas || prefersReducedMotion()) return;
+    if (window.matchMedia(NO_INTRO_QUERY).matches) return;
 
     let destroy = () => {};
     (async () => {
