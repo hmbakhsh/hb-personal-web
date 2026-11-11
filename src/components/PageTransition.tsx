@@ -19,6 +19,10 @@ import { domToCanvas } from "modern-screenshot";
 import { createWaterShader, type WaterShader } from "@/lib/waterShader";
 
 const MAX_DPR = 2;
+// Safari draws a snapshot's images only on a later redraw. The library waits
+// 100ms per image for that by default, nearly a second on this page; a few ms
+// still draws every image.
+const SAFARI_REDRAW_MS = 8;
 const SWEEP_MS = 1050;
 const COMMIT_TIMEOUT_MS = 4000;
 const SNAPSHOT_FRESH_MS = 2500;
@@ -63,6 +67,7 @@ async function snapshotViewport() {
     backgroundColor: getComputedStyle(document.body).backgroundColor,
     // Without this the clone picks up the browser's default 8px body margin.
     style: { margin: "0" },
+    drawImageInterval: SAFARI_REDRAW_MS,
     filter: (node) =>
       !(node instanceof Element) ||
       !(
@@ -247,6 +252,9 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
         await document.fonts.ready;
         await Promise.all([...document.images].map((image) => image.decode().catch(() => {})));
 
+        // Photographing waits on fetches and timers, so the shaders compile meanwhile.
+        const pageShot = snapshotViewport();
+        pageShot.catch(() => {}); // Awaited below, which reports a failure.
         const { width, height } = viewportSize();
         const water = createWaterShader(waterCanvas, {
           cssWidth: width,
@@ -272,7 +280,7 @@ export function PageTransitionProvider({ children }: { children: ReactNode }) {
           band?.destroy();
         };
 
-        const page = await snapshotViewport();
+        const page = await pageShot;
         if (performance.now() > INTRO_DEADLINE_MS) return;
 
         water.setImages(solidImage(getComputedStyle(document.body).backgroundColor), page);
