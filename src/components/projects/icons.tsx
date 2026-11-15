@@ -30,7 +30,7 @@ export function RootieIcon({ className }: { className?: string }) {
   );
 }
 
-export function NotchIcon({ className }: { className?: string }) {
+export function IslandIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 64 64" className={className} aria-hidden>
       <rect width="64" height="64" rx="14" fill="#3a3a3f" />

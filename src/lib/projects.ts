@@ -2,7 +2,7 @@
 // /projects/<slug>, unless it sets its own url.
 
 export type Project = {
-  slug: "rootie" | "notch" | "hacky";
+  slug: "rootie" | "island" | "hacky";
   name: string;
   description: string;
   url?: string;
@@ -16,8 +16,8 @@ export const projects: Project[] = [
       "Deterministic link routing to Chromium profiles",
   },
   {
-    slug: "notch",
-    name: "Notch",
+    slug: "island",
+    name: "Island",
     description:
       "Dynamic Island for your Mac",
   },
