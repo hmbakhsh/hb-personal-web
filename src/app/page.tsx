@@ -66,7 +66,7 @@ export default function Home() {
           </a>
           , researching creativity in large language models.
         </p>
-        <div className="mt-4 flex justify-between gap-x-4 sm:justify-start sm:gap-x-6">
+        <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 sm:gap-x-6">
           {links.map((link) => (
             <a
               key={link.label}
