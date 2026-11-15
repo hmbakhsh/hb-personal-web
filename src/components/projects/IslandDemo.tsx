@@ -29,7 +29,7 @@ const scenes: Scene[] = [
     source: ["Claude", "api"],
     glyph: "✓",
     color: GREEN,
-    command: 'notch "Tests passed" -b "412 passed in 2m 14s" -c green',
+    command: 'island "Tests passed" -b "412 passed in 2m 14s" -c green',
     after: { running: 1, needs: 0, done: 1 },
   },
   {
@@ -39,7 +39,7 @@ const scenes: Scene[] = [
     source: ["Codex", "backend"],
     glyph: "?",
     color: YELLOW,
-    command: 'notch "Needs your input" -b "Run the migration on prod?" -c yellow',
+    command: 'island "Needs your input" -b "Run the migration on prod?" -c yellow',
     after: { running: 1, needs: 1, done: 0 },
   },
   { kind: "switcher", command: "# hover the notch for the switcher" },
@@ -60,7 +60,7 @@ const scenes: Scene[] = [
     source: ["GitHub"],
     glyph: "↑",
     color: "#bf5af2",
-    command: 'notch "Deploy finished" -b "web-app is live in 48s" -o "$URL"',
+    command: 'island "Deploy finished" -b "web-app is live in 48s" -o "$URL"',
     after: { running: 2, needs: 0, done: 0 },
   },
 ];
@@ -85,7 +85,7 @@ const CLOSE_EASE = "cubic-bezier(0.3, 0, 0.15, 1)";
 const OUT_EASE = "cubic-bezier(0.23, 1, 0.32, 1)";
 const MOVE_EASE = "cubic-bezier(0.77, 0, 0.175, 1)";
 
-export default function NotchDemo() {
+export default function IslandDemo() {
   // `next` is the scene about to play; `shown` is what the open island holds.
   // `shown` only changes as the island opens, never while it's closing.
   const [next, setNext] = useState(0);

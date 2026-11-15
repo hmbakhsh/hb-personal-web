@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import ProjectPage from "@/components/projects/ProjectPage";
-import NotchDemo from "@/components/projects/NotchDemo";
-import { NotchIcon } from "@/components/projects/icons";
+import IslandDemo from "@/components/projects/IslandDemo";
+import { IslandIcon } from "@/components/projects/icons";
 
 export const metadata: Metadata = {
-  title: "Notch",
+  title: "Island",
   description: "Dynamic Island for your Mac",
 };
 
-export default function Notch() {
+export default function Island() {
   return (
     <ProjectPage
-      icon={<NotchIcon />}
-      name="Notch"
+      icon={<IslandIcon />}
+      name="Island"
       tagline="Dynamic Island for your Mac"
-      demo={<NotchDemo />}
-      install={["git clone https://github.com/hmbakhsh/notch-island", "cd notch-island && just install"]}
-      installNote="macOS 14+, Swift 5.9+ and just. Installs Island.app and the notch CLI."
+      demo={<IslandDemo />}
+      install={["git clone https://github.com/hmbakhsh/island", "cd island && just install"]}
+      installNote="macOS 14+, Swift 5.9+ and just. Installs Island.app and the island CLI."
       notes={[
         {
           title: "Built for coding agents",
@@ -32,7 +32,7 @@ export default function Notch() {
         },
       ]}
       links={[
-        { label: "github", url: "https://github.com/hmbakhsh/notch-island" },
+        { label: "github", url: "https://github.com/hmbakhsh/island" },
         { label: "hbak.co", url: "/" },
       ]}
     />
